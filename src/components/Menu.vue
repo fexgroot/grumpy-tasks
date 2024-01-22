@@ -21,8 +21,8 @@ export default {
       this.showMenu = !this.showMenu;
     },
     deleteAllTasks() {
-      localStorage.removeItem("tasks");
-      this.$store.commit("deleteAllTasks");
+      this.$emit("delete-all-tasks");
+      localStorage.setItem("tasks", JSON.stringify([]));
     },
   },
 };

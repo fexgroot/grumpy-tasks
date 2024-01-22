@@ -43,7 +43,6 @@ li {
 li a {
   color: #35495e;
   text-decoration: none;
-
 }
 li a:hover {
   text-decoration: line-through;

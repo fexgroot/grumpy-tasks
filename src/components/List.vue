@@ -47,7 +47,7 @@ export default {
 hr {
   border: 2px solid rgb(52, 73, 94, 0.2);
   margin: 1rem auto;
-  width: 50%; 
+  width: 50%;
 }
 
 ul {

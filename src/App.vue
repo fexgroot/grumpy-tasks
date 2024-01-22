@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <CounterComponent :taskCount="tasks.length" />
-    <MenuComponent />
+    <MenuComponent @delete-all-tasks="clearAllTasks" />
     <HeaderComponent />
     <InputComponent :placeholder="inputPlaceholder" @add="addTask" />
     <ListComponent :tasks="tasks" @delete="deleteTask" />
@@ -41,6 +41,9 @@ export default {
     },
     deleteTask(index) {
       this.tasks.splice(index, 1);
+    },
+    clearAllTasks() {
+      this.tasks = []; // Set tasks to an empty array
     },
   },
 
