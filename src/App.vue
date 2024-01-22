@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <CounterComponent :task-count="tasks.length" />
+    <CounterComponent :taskCount="tasks.length" />
     <MenuComponent />
     <HeaderComponent />
     <InputComponent :placeholder="inputPlaceholder" @add="addTask" />
