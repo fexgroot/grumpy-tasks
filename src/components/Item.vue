@@ -22,7 +22,9 @@ export default {
       this.$emit("mark-task", this.itemName);
     },
     deleteItem() {
-      this.$emit("delete");
+      setTimeout(() => {
+        this.$emit("delete");
+      }, 150);
     },
   },
 };
@@ -70,6 +72,9 @@ button {
 }
 button:hover {
   background-color: #d74755;
+}
+button:active {
+  transform: scale(0.9);
 }
 button:focus-visible {
   outline: none;
