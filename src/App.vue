@@ -46,7 +46,6 @@ export default {
       this.tasks = []; // Set tasks to an empty array
     },
   },
-
   computed: {
     inputPlaceholder() {
       return this.tasks.length === 0 ? `Add a new task` : "Add another task";

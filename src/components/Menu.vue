@@ -1,12 +1,15 @@
 <template>
   <div class="container">
-    <button @click="handleClick" id="menuButton">
+    <div id="menuButton">
       <img src="../assets/menu.svg" alt="Menu" />
-    </button>
-    <div class="menuList" :class="{ visible: showMenu }">
-      <button @click="deleteAllTasks" id="deleteButton">
-        Delete All Tasks
-      </button>
+    </div>
+    <div
+      @mouseenter="showMenu = true"
+      @mouseleave="showMenu = false"
+      class="menuList"
+      :class="{ menuOpen: showMenu }"
+    >
+      <button @click="deleteAllTasks" id="deleteButton">Delete All</button>
     </div>
   </div>
 </template>
@@ -19,9 +22,6 @@ export default {
     };
   },
   methods: {
-    handleClick() {
-      this.showMenu = !this.showMenu;
-    },
     deleteAllTasks() {
       this.$emit("delete-all-tasks");
       localStorage.setItem("tasks", JSON.stringify([]));
@@ -38,7 +38,7 @@ export default {
   position: absolute;
   top: 2rem;
   left: 2rem;
-  width: 15vw;
+  width: 5vw;
   height: 85vh;
 }
 
@@ -54,16 +54,16 @@ export default {
   padding-top: 4rem;
   background: lightgray;
   border-radius: 0.8rem;
-  visibility: hidden;
   opacity: 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.1s ease-in-out;
 }
 
-.visible {
+.menuOpen {
   visibility: visible;
   opacity: 1;
-  left: -1rem;
+  left: 1rem;
+  width: 250px;
 }
 
 #menuButton {
@@ -74,14 +74,9 @@ export default {
   transition: 0.1s ease-in-out;
   position: absolute;
   z-index: 1;
-}
-#menuButton:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-#menuButton:focus-visible {
-  outline: none;
-  opacity: 0.5;
+  left: -2rem;
+  top: 50%;
+  transform: rotate(90deg);
 }
 
 #deleteButton {
@@ -95,12 +90,15 @@ export default {
   color: white;
   transition: 0.1s ease-in-out;
 }
+
 #deleteButton:hover {
   background-color: #d74755;
 }
+
 #deleteButton:active {
   transform: scale(0.9);
 }
+
 #deleteButton:focus-visible {
   outline: none;
   opacity: 0.5;
