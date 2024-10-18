@@ -1,6 +1,6 @@
 {
-  "name": "groot-tasks",
-  "version": "0.0.0",
+  "name": "grumpy-tasks",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
